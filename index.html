@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>My Super Web Site</title>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <div class="container">
+            <h5 id="result">0</h5>
+            <h5>Asset risk score: Poor(75-100)</h5>
+            <input type="radio" class="radio" name="progress" value="five" id="five" checked>
+            <label for="five" class="label">5мс</label>
+          
+            <input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive">
+            <label for="twentyfive" class="label">25мс</label>
+          
+            <input type="radio" class="radio" name="progress" value="fifty" id="fifty">
+            <label for="fifty" class="label">50мс</label>
+          
+            <input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive">
+            <label for="seventyfive" class="label">75мс</label>
+          
+            <input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
+            <label for="onehundred" class="label">100мс</label>
+          
+            <div class="progress">
+              <div class="progress-bar"></div>
+            </div>
+        </div>          
+
+        <div class="form__group field">
+            <input type="input" class="form__field" placeholder="data" name="name" id='inputData' required />
+            <label for="name" class="form__label">Строка данных</label>
+        </div>
+    
+        <div class="multi-button">
+            <button id="sendButton" type="submit">Старт</button>
+        </div>
+    
+        <h5>Результаты</h5>
+    </div>
+
+    <script async src="request.js"></script>
+    
+</body>
+</html>
