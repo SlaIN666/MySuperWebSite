@@ -32,12 +32,11 @@ document.querySelector('#sendButton').addEventListener('click', async () => {
 
         let color = end-start > 75 ? '#da3a1a' : end-start > 50 ? '#f27011' : end-start > 25 ? '#f2b01e' : end-start > 5 ? '#f2d31b' : '#86e01e'
 
-        document.querySelector('.progress-bar').style.width = `${end-start > 100 ? 100 : end-start}%`
-        document.querySelector('.progress-bar').style.backgroundColor = color
+        gaugePressure.options.highlights[0].to = `${end-start > 100 ? 100 : end-start}`
+        gaugePressure.options.highlights[0].color = color
+        gaugePressure.value = end-start
         document.querySelector('#result').innerHTML = `${(end-start) > 75 ? 'Poor' : 'Good'} ${end-start}мс`
         document.querySelector('#result').style.color = color
-
-        
 
         let dateLaunch = new Date().toLocaleString("ru", DATEOPTIONS)
 
