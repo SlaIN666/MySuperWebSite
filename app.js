@@ -13,17 +13,17 @@ app.post('/send', (req, res) => {
   let c = 1
   
   for (let i = 0; i < sum.length; i++) {
-      if(sum[i+1] == sum[i]) {
-          c++
-      } else {
-          sum[i] = c+sum[i]
-          c = 1
-      }
+    if(sum[i+1] == sum[i]) {
+        c++
+    } else {
+        sum[i] = c+sum[i]
+        c = 1
+    }
   }
-  
-  sum = sum.join('').match(/[1-9][a-z]/gi).join('')
-  
-  res.json(sum)
+
+  let result = sum.filter(el => el.length == 2)
+
+  res.json(result)
 })
 
 app.get('*', (req, res) => {
