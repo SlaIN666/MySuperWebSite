@@ -30,7 +30,7 @@ document.querySelector('#sendButton').addEventListener('click', async () => {
 
         const end = new Date().getTime();
 
-        let color = end-start > 75 ? '#da3a1a' : end-start > 50 ? '#f27011' : end-start > 25 ? '#f2b01e' : end-start > 5 ? '#f2d31b' : '#86e01e'
+        let color = end-start > 100 ? '#ffae00' : '#0dff00'
 
         gaugePressure.options.highlights[0].to = `${end-start > 100 ? 100 : end-start}`
         gaugePressure.options.highlights[0].color = color
