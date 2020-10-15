@@ -21,7 +21,7 @@ app.post('/send', (req, res) => {
     }
   }
 
-  let result = sum.filter(el => el.length == 2)
+  let result = sum.filter(el => el.length == 2).join('')
 
   res.json(result)
 })
