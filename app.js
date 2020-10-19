@@ -8,28 +8,25 @@ app.use(express.static(__dirname + "/scripts"))
 app.use(express.json({limit: '1mb'}))
 
 app.post('/send', (req, res) => {
-  const start = new Date().getTime();
-
   let data = req.body.data
   let sum = data.split('')
-  let c = 1
+
+  function symbolCounter (array) {    
+    let c = 1
   
-  for (let i = 0; i < sum.length; i++) {
-    if(sum[i+1] == sum[i]) {
-        c++
-    } else {
-        sum[i] = c+sum[i]
-        c = 1
+    for (let i = 0; i < array.length; i++) {
+      if(array[i+1] == array[i]) {
+          c++
+      } else {
+        array[i] = c+array[i]
+          c = 1
+      }
     }
+
+    return array.filter(el => el.length == 2).join('')    
   }
-
-  let str = sum.filter(el => el.length == 2).join('')
-
-  const end = new Date().getTime();
-
-  let time = end - start
-  let result = {str, time}
-
+  
+  let result = symbolCounter(sum)
   res.json(result)
 })
 
