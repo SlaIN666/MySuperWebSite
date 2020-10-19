@@ -8,6 +8,8 @@ app.use(express.static(__dirname + "/scripts"))
 app.use(express.json({limit: '1mb'}))
 
 app.post('/send', (req, res) => {
+  const start = new Date().getTime();
+
   let data = req.body.data
   let sum = data.split('')
   let c = 1
@@ -21,7 +23,12 @@ app.post('/send', (req, res) => {
     }
   }
 
-  let result = sum.filter(el => el.length == 2).join('')
+  let str = sum.filter(el => el.length == 2).join('')
+
+  const end = new Date().getTime();
+
+  let time = end - start
+  let result = {str, time}
 
   res.json(result)
 })
